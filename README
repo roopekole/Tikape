@@ -1,0 +1,7 @@
+Tietokantojen perusteet, suunnittelu- ja toteutustehtävä
+
+Toteutus sisältää drinkkilistauksen sekä mahdollisuuden lisätä uusia drinkkejä.
+Drinkkien ainesosien syötössä ei tehdä tarkistusta String-primitiivityypit (nimi,ohje) voidaan syöttää tyhjänä ja Int-primitiivityypit 
+aiheuttavat  500 errorin.
+
+Ainesosia voi myös selata, jolloin sovellus näyttää kaikki drinkit, johon ko. ainesosa sisältyy sekä tilastotietoa ko. ainesosan osalta
