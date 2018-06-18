@@ -1,0 +1,59 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+         <title>Tikape18 harjoitustyö</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" type="text/css" href="reset.css" media="screen" />
+		<link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+    </head>
+
+    <body>
+		<div id="container">
+		<div id="header">
+        <h1>Drinkkireseptit</h1>
+		<h2><a th:text="${drinkki.nimi}">Raaka-aineen nimi</a></h2>
+		</div>
+		<div id="leftColumn">
+		<h2>Author: Roope Kolehmainen</h2>
+		<h3><a th:href ="@{~/}">Palaa etusivulle</a></h3>
+		</div>
+		<div id="centerColumn">
+		<h2>Ainesosat</h2>
+		<ul style="list-style-type:none">
+		<li>
+		<table>
+		 <tr>
+			<th>Aine</th>
+			<th>Määrä (cl)</th>
+			<th>Järjestys</th>
+			<th>Ohje</th>
+		  </tr>
+		  <tr th:each="raakaaine : ${raakaaineet}">
+            <td>
+                <a th:href="@{~/raakaaine/{id}(id=${raakaaine.id})}">
+                    <span th:text="${raakaaine.nimi}">Raaka-aine</span>
+                </a>
+				
+            </td>
+			<td><span th:text="${raakaaine.maara}">Määrä (cl)</span></td>
+			<td><span th:text="${raakaaine.jarjestys}">Jäjestys</span></td>
+			<td><span th:text="${raakaaine.ohje}">Ohje</span></td>
+		</tr>
+		<form method="POST" th:action="@{~/lisaaraakaaine}">
+		<td><input type="text" name="nimi"/></td>
+		<td><input type="text" name="maara"/></td>
+		<td><input type="text" name="jarjestys"/></td>
+		<td><input type="text" name="ohje"/></td>
+		<input type="hidden" name="drinkki" th:value="${drinkki.id}" />
+		<td><input type="submit" name="Lisää aine"/></td>
+		</table>
+		</li>
+		</ul>
+		</div>
+	  <!--//end #centerColumn//-->
+	
+	
+	</div>	
+    </body>
+</html>

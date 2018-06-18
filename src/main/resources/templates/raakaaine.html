@@ -1,0 +1,43 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <title>Tikape18 harjoitustyö</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" type="text/css" href="reset.css" media="screen" />
+		<link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+    </head>
+
+    <body>
+	<div id="container">
+		<div id="header">
+		<h1>Drinkkirespetit</h1>
+		<h2><a th:text="${raakaaine.nimi}">Raaka-aineen nimi</a></h2>
+	  </div>	
+	  <div id="leftColumn">
+		<h2>Author: Roope Kolehmainen</h2>
+		<h3><a th:href ="@{~/}">Palaa etusivulle</a></h3>
+	  </div>
+	<div id="centerColumn">
+		<h2><a th:text="${raakaaine.nimi}">Raaka-aineen nimi</a>...</h2>
+		<p>On <a th:text="${tilasto.popular}">Popular</a>. suosituin raaka-aine</p>
+		<p>Sisältyy <a th:text="${tilasto.percent}">Percent</a> % drinkeistä</p>
+		<p>Esiintyy <a th:text="${tilasto.count}">Count</a> drinkissä</p>
+		
+		 <ul style="list-style-type:none">
+            <li th:each="drinkki : ${drinkit}">
+                <a th:href="@{~/drinkki/{id}(id=${drinkki.id})}">
+                    <span th:text="${drinkki.nimi}">Drinkin nimi</span>
+                </a>
+            </li>
+        </ul>
+      
+		
+	  </div>
+	  
+	 </div>	
+		
+    </body>
+</html>
+
+
