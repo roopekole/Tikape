@@ -1,1 +1,1 @@
-"web:    java -cp target/classes:target/dependency/* tikape.drinkit.Drinkkireseptittest" 
+"web:    java -cp target/classes:target/dependency/* tikape.drinkit.Drinkkireseptit" 
